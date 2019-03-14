@@ -17,7 +17,8 @@ setuptools.setup(
     'numpy',
     'scipy',
     'matplotlib>=2.2.0',
-    'tensorflow>=1.13.0'],
+    'tensorflow>=1.13.0',
+    'tensorflow_probability'],
     classifiers=[
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
