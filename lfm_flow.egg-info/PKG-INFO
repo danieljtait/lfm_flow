@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: lfm-flow
+Version: 0.0.2
+Summary: LFM in TensorFlow
+Home-page: https://github.com/danieljtait/lfm_flow
+Author: Daniel Tait
+Author-email: daniel.tait@warwick.ac.uk
+License: UNKNOWN
+Description: # lfm_flow
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
