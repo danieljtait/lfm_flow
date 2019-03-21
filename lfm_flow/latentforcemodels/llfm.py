@@ -1,11 +1,59 @@
 import tensorflow as tf
-from tensorflow_probability.python.distributions import MultivariateNormalFullCovariance
+from tensorflow_probability.python.distributions import (MultivariateNormalFullCovariance,
+                                                         GaussianProcess)
 
-class LLFM:
+# decorater for the kernel function to recieve information
+# about the shape for multioutput regression
 
-    def __init__(self, kernel, jitter=1e-5):
-        self.jitter = jitter
-        self.kernel = kernel
+class LLFM(GaussianProcess):
+
+    def __init__(self,
+                 kernel,
+                 index_points,
+                 jitter=1e-6,
+                 name='LFM1'):
+
+        parameters = dict(locals())
+
+        # store the original index points
+        self._jitter = jitter
+
+        self._kernel = kernel
+
+        self._orig_index_points = index_points
+
+
+        """
+        flat_index_points = tf.concat(index_points, axis=-2)
+        
+        self._index_points = index_points
+        self._flat_index_points = tf.concat(self._index_points,
+
+        self._jitter = jitter
+
+        with tf.compat.v1.name_scopt('init', values=[index_points, jitter]):
+            kernel_matrix = _add_diagonal_shift(
+                kernel.matrix(self.flat_index_points, self.flat_index_points,
+                              self.flat_index_points.shape)
+        """
+
+        
+
+    @property
+    def kernel(self):
+        return self._kernel
+
+    @property
+    def index_points(self):
+        return self._index_points
+
+    @property
+    def jitter(self):
+        return self._jitter
+
+    def _covariance(self):
+        return self._covariance_matrix
+
 
     def _build_likelihood(self):
         """

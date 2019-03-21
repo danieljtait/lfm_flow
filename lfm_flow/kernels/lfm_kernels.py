@@ -64,7 +64,7 @@ class LFM1_RBF(Kernel):
                                                 self.S.shape)
         batch_shape = tf.broadcast_static_shape(
             batch_shape,
-            self.lf_length_scales[...., None, :].shape)
+            self.lf_length_scales[..., None, :].shape)
         return batch_shape[:-2]
 
     def _batch_shape_tensor(self):
@@ -74,7 +74,7 @@ class LFM1_RBF(Kernel):
 
         return batch_shape[:-2]
 
-    def _hpq(self, t1, t2, shape1, shape2):
+    def _hpq(self, x1, x2, shape1, shape2):
         D = self.D
         lf_length_scales = self.lf_length_scales
         R = self.lf_length_scales.shape[-1]
