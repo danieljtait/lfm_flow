@@ -12,6 +12,7 @@ def _validate_lfmkern_input(t1, output_ndims):
         t1 = np.concatenate([item for item in t1])
         return t1, shape
 
+
 class LFM1_RBF(Kernel):
     """
     First order LFM kernel

@@ -5,6 +5,7 @@ from tensorflow_probability.python.distributions import (MultivariateNormalFullC
 # decorater for the kernel function to recieve information
 # about the shape for multioutput regression
 
+
 class LLFM(GaussianProcess):
 
     def __init__(self,
@@ -36,8 +37,6 @@ class LLFM(GaussianProcess):
                 kernel.matrix(self.flat_index_points, self.flat_index_points,
                               self.flat_index_points.shape)
         """
-
-        
 
     @property
     def kernel(self):

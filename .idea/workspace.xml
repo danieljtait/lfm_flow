@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="850f2d2c-9ac6-41d5-a915-c148be8dda6e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lfm_flow/gplvm/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lfm_flow/gplvm/gplvm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/source/notebooks/first_order_lfm_intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/doc/source/notebooks/first_order_lfm_intro.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lfm_flow.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow.egg-info/requires.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lfm_flow/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lfm_flow/kernels/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/kernels/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lfm_flow/kernels/kernels.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/kernels/kernels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lfm_flow/latentforcemodels/llfm.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/latentforcemodels/llfm.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lfm_flow/latentforcemodels/llfm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/mogp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#88#111#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lfm_flow/gplvm/gplvm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
+              <folding>
+                <element signature="e#22#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/gplvm_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lfm_flow/kernels/kernels.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#6#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/lfm_flow/latentforcemodels/llfm.py" />
+        <option value="$PROJECT_DIR$/doc/source/notebooks/first_order_lfm_intro.ipynb" />
+        <option value="$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py" />
+        <option value="$PROJECT_DIR$/tests/mogp.py" />
+        <option value="$PROJECT_DIR$/lfm_flow/gplvm/__init__.py" />
+        <option value="$PROJECT_DIR$/lfm_flow/__init__.py" />
+        <option value="$PROJECT_DIR$/lfm_flow/kernels/__init__.py" />
+        <option value="$PROJECT_DIR$/lfm_flow/kernels/kernels.py" />
+        <option value="$PROJECT_DIR$/lfm_flow/gplvm/gplvm.py" />
+        <option value="$PROJECT_DIR$/tests/gplvm_test.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="280" />
+    <option name="y" value="51" />
+    <option name="width" value="1400" />
+    <option name="height" value="914" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="gplvm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="kernels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="lfm_flow" type="JupiterNotebook" factoryName="Jupyter Notebook">
+      <module name="lfm_flow" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/MyVenvs/lfm_flow/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="additionalOptions" value="" />
+      <option name="ipnbHost" value="127.0.0.1" />
+      <option name="ipnbPort" value="8888" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="850f2d2c-9ac6-41d5-a915-c148be8dda6e" name="Default Changelist" comment="" />
+      <created>1553169810041</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1553169810041</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="280" y="51" width="1400" height="914" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" weight="0.3296837" />
+      <window_info anchor="bottom" id="Python Console" weight="0.3296837" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3296837" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3296837" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/doc/source/notebooks/first_order_lfm_intro.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfm_flow/gplvm/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfm_flow/latentforcemodels/llfm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/mogp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#88#111#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfm_flow/kernels/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="e#181#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfm_flow/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfm_flow/kernels/kernels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#6#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/MyVenvs/lfm_flow/lib/python3.7/site-packages/tensorflow/python/client/session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="1127" selection-start-line="1127" selection-end-line="1127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lfm_flow/gplvm/gplvm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/gplvm_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,1 @@
+from .gplvm import GaussianProcessLatentVariableModel
