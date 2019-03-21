@@ -4,35 +4,48 @@ from lfm_flow.gplvm import GaussianProcessLatentVariableModel
 from lfm_flow.kernels import RBF
 import matplotlib.pyplot as plt
 
-length_scales = np.random.uniform(size=2)
+length_scales = np.ones(2)
+#length_scales = np.sqrt( np.ones(2) / 150. )
 
-N = 100
-D = 3
+N = 200
+D = 12
 
 kern = RBF(length_scales)
 
-X = tf.get_variable(name='X', shape=(N, 2), dtype=np.float64)
+### Generate some data
+from lfm_flow.examples import ThreePhaseData
+thphdat = ThreePhaseData.download()
+
+_Y = thphdat.DataTrn[::5, :]
+
+from sklearn.decomposition import PCA
+pca = PCA(n_components=2)
+pca.fit(_Y)
+Xpca = pca.transform(_Y)
+
+# initialize with results from PCA
+X = tf.get_variable(name='X',
+                    initializer = Xpca,
+                    dtype=np.float64)
 
 
-gplvm = GaussianProcessLatentVariableModel(kern, X, observation_noise_variance=1.)
+gplvm = GaussianProcessLatentVariableModel(kern, X,
+                                           observation_noise_variance=0.01 )#1/316.)
 
 Y = tf.placeholder(shape=(N, D), dtype=np.float64)
 
 logprob = gplvm._log_prob(Y)
 optimizer = tf.train.AdamOptimizer(learning_rate=0.01)
-train_op = optimizer.minimize(-logprob)
+
+var_list = [X, gplvm.kernel.length_scale] #, gplvm.observation_noise_variance]
+
+train_op = optimizer.minimize(-logprob, var_list=var_list)
 
 
 
-### Generate some data
-m1 = .3*np.random.randn(30, 2) + np.array([-1., 0.])[None, :]
-m2 = .2*np.random.randn(70, 2) + np.array([1.5, 2.])[None, :]
 
-_X = np.vstack([m1, m2])
 
-_y1 = np.column_stack([m1[:, 0], m1[:, 0] - 2., m1[:, 0]*m1[:, 1]])
-_y2 = np.column_stack([*m2.T, m2[:, 0] * m2[:, 1]])
-_Y = np.vstack([_y1, _y2])
+labs = thphdat.DataTrnLbls[::5, :]
 
 
 feed_dict = {Y: _Y}
@@ -52,7 +65,15 @@ for i in range(num_iters):
     #print(dx)
 
 #length_scale = sess.run(gplvm.kernel.length_scale)
-print(gplvm.kernel.length_scale)
+print(sess.run(gplvm.kernel.length_scale))
+
+obs_noise_var = sess.run(gplvm.observation_noise_variance)
+print(obs_noise_var)
+      
+inds = np.where(labs == 1)
+
+_labs = labs * np.array([1., 2., 3.])[None, :]
+_labs = np.asarray(_labs.sum(-1) - 1, dtype=np.intp)
 
 fig, ax = plt.subplots()
 ax.plot(lls_)
@@ -60,8 +81,16 @@ ax.plot(lls_)
 X = sess.run(gplvm.latent_states)
 
 fig2, ax2 = plt.subplots()
-#ax2.plot(_X[:, 0], _X[:, 1], 's')
-ax2.plot(X[:30, 0], X[:30, 1], '+')
-ax2.plot(X[30:, 0], X[30:, 1], 'o')
+
+
+for cls, mrk in zip([0, 1, 2], ['o', '+', 's']):
+    ax2.plot(X[_labs==cls, 0], X[_labs==cls, 1], mrk)
+
+fig3, ax3 = plt.subplots()
+
+for cls, mrk in zip([0, 1, 2], ['o', '+', 's']):
+    ax3.plot(Xpca[_labs==cls, 0], Xpca[_labs==cls, 1], mrk)
+
+
 plt.show()
 

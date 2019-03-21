@@ -1,4 +1,0 @@
-import tarfile
-
-tar = tarfile.open("3PhData.tar.gz")
-tar.getmembers()

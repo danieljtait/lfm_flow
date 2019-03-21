@@ -39,6 +39,15 @@ class GaussianProcessLatentVariableModel:
             observations = (None if observations is None else tf.convert_to_tensor(
                 value=observations, dtype=dtype, name='observations'))
 
+            observation_noise_variance = tf.get_variable(
+                name = "observation_noise_variance",
+                initializer = tf.cast(observation_noise_variance, dtype),
+                dtype = dtype)
+
+            #observation_noise_variance = tf.convert_to_tensor(a
+            #    value=observation_noise_variance, dtype=dtype,
+            #    name='observation_noise_variance')
+
             # Default to a constant zero function, borrowing the dtype from
             # latent states points to ensure consistency
             if mean_fn is None:
