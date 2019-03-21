@@ -1,0 +1,12 @@
+.. _reference:
+
+#################
+LFMFlow Reference
+#################
+
+.. modulde:: lfm_flow
+
+This reference manual details the functions, modules and objects
+included in the LFM_Flow package, describing what they are and
+what they do. For learning how to use LFM_Flow and an introduction
+to the models, see also :ref:`user`.

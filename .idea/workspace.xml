@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="850f2d2c-9ac6-41d5-a915-c148be8dda6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lfm_flow/gplvm/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lfm_flow/gplvm/gplvm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/source/notebooks/first_order_lfm_intro.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/doc/source/notebooks/first_order_lfm_intro.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfm_flow.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow.egg-info/requires.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfm_flow/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfm_flow/kernels/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/kernels/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfm_flow/kernels/kernels.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/kernels/kernels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lfm_flow/latentforcemodels/llfm.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfm_flow/latentforcemodels/llfm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/source/reference/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lfm_flow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lfm_flow.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/build/doctrees/environment.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/build/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/doc/build/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/doc/source/index.rst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,34 +43,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lfm_flow/gplvm/gplvm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
-              <folding>
-                <element signature="e#22#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/doc/source/index.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/gplvm_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/doc/source/reference/index.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="870">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
             </state>
           </provider>
         </entry>
@@ -115,6 +98,8 @@
         <option value="$PROJECT_DIR$/lfm_flow/kernels/kernels.py" />
         <option value="$PROJECT_DIR$/lfm_flow/gplvm/gplvm.py" />
         <option value="$PROJECT_DIR$/tests/gplvm_test.py" />
+        <option value="$PROJECT_DIR$/doc/source/index.rst" />
+        <option value="$PROJECT_DIR$/doc/source/reference/index.rst" />
       </list>
     </option>
   </component>
@@ -136,6 +121,30 @@
             <path>
               <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
               <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lfm_flow" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="reference" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lfm_flow" type="b2602c69:ProjectViewProjectNode" />
@@ -167,7 +176,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -215,13 +224,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="280" y="51" width="1400" height="914" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" weight="0.3296837" />
       <window_info anchor="bottom" id="Python Console" weight="0.3296837" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3296837" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3296837" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -252,17 +262,6 @@
           <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/mogp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#88#111#0" />
           </folding>
         </state>
       </provider>
@@ -300,7 +299,7 @@
     <entry file="file://$PROJECT_DIR$/lfm_flow/kernels/lfm_kernels.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
@@ -321,15 +320,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/doc/build/html/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/gplvm_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+        <state relative-caret-position="510">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/mogp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#88#111#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/source/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/source/reference/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
   </component>
 </project>

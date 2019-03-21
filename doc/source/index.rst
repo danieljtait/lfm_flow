@@ -8,6 +8,11 @@ Welcome to lfm_flow's documentation!
 
 Here is some txt.
 
+.. toctree::
+   :maxdepth: 1
+   /user/index
+   reference/index
+
 .. automodule:: lfm_flow.kernels
    :members:		
 
