@@ -1,1 +1,1 @@
-from .llfm import LLFM
+from .llfm import LLFM, LFMGaussianProcess

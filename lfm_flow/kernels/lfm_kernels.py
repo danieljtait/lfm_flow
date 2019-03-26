@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 from .kernels import Kernel
+from tensorflow_probability.python.internal import dtype_util
 
 
 def _validate_lfmkern_input(t1, output_ndims):
@@ -19,31 +20,23 @@ class LFM1_RBF(Kernel):
     """
     def __init__(self, D, S, lf_length_scales):
 
-        dtype = np.float64  # common data type for kernel hyperparameters
-        
-        self._D = tf.get_variable('D',
-                                  dtype=dtype,
-                                  initializer=np.asarray(D))
-        self._output_ndims = self._D.shape[0]
+        dtype = dtype_util.common_dtype([D, S], tf.float32)
 
-        self._S = tf.get_variable('S',
-                                  dtype=dtype,
-                                  initializer=np.asarray(S))
+        self._D = tf.convert_to_tensor(D, dtype=dtype, name='D')
+        self._S = tf.convert_to_tensor(S, dtype=dtype, name='S')
+
+        self._output_ndims = self._D.shape[-1]
 
         # constrain the length scales to be strictly positive
-        self._lf_length_scales = (np.finfo(np.float64).tiny +
-                                  tf.nn.softplus(tf.get_variable(
-            'lf_length_scales', dtype=dtype,
-            initializer=np.asarray(lf_length_scales))))
+        self._lf_length_scales = tf.convert_to_tensor(lf_length_scales)
 
         self.variables = [self.D, self.S, self._lf_length_scales]
+        self.feature_ndims = 1
 
     @property
     def lf_length_scales(self):
         """ Length scales of the latent force RBF kernels. """
         return self._lf_length_scales
-    #ls = tf.exp(self._sp_length_scales) - 1
-    #    return tf.log(ls) - (np.finfo(np.float64).tiny)
 
     @property
     def D(self):
@@ -71,7 +64,7 @@ class LFM1_RBF(Kernel):
     def _batch_shape_tensor(self):
 
         batch_shape = tf.broadcast_dynamic_shape(
-            tf.shape(self.D[..., None]), tf.shape(S))
+            tf.shape(self.D[..., None]), tf.shape(self.S))
 
         return batch_shape[:-2]
 
@@ -86,7 +79,7 @@ class LFM1_RBF(Kernel):
         # Dt.shape = broadcast([b1,...,bB], [c1,...,cC]) + [e1, e2, R]
         Dt /= self.lf_length_scales[..., None, None, :]
 
-        #nup[..., p, r] = .5 * D[..., p] * l[..., r]
+        # nup[..., p, r] = .5 * D[..., p] * l[..., r]
         nup = .5 * D[..., :, None] * lf_length_scales[..., None, :]
 
         # inflate nup to shape [b1,...,bB, e1, R]
@@ -102,9 +95,11 @@ class LFM1_RBF(Kernel):
         Dp_shape1 = tf.concat([D[..., p, None, None] * tf.ones((Np, 1), dtype=D.dtype)
                                for p, Np in enumerate(shape1)],
                               axis=-2)
+
+        # make a space for the q axis in Dp and the p axis in x2
         expr1 *= tf.exp(Dp_shape1[..., None, :] * x2[..., None, :, :])
 
-        Dq_shape2 = tf.concat([D[..., q, None, None] * tf.ones((Nq, 1), dtype=D.dtype)
+        Dq_shape2 = tf.concat([D[..., None, q, None] * tf.ones((Nq, 1), dtype=D.dtype)
                                for q, Nq in enumerate(shape2)],
                               axis=-2)
 
@@ -113,6 +108,7 @@ class LFM1_RBF(Kernel):
 
         C = tf.exp(-Dp_shape1 * x1)[..., None, :] / \
             (Dp_shape1[..., None, :] + Dq_shape2[..., None, :, :])
+        C *= tf.exp(nup ** 2)[..., None, :]
 
         return C * (expr1 - expr2)
 
@@ -123,11 +119,12 @@ class LFM1_RBF(Kernel):
 
         R = self.lf_length_scales.shape[-1]
         
-        Srp = tf.concat([self.S[..., p, :][..., None, :] * \
+        Srp = tf.concat([self.S[..., p, :][..., None, :] *
                          tf.ones((Np, R), dtype=self.D.dtype)
                          for p, Np in enumerate(x1_shape)],
                         axis=-2)
-        Srq = tf.concat([self.S[..., q, :][..., None, :] * \
+
+        Srq = tf.concat([self.S[..., q, :][..., None, :] *
                          tf.ones((Nq, R), dtype=self.D.dtype)
                          for q, Nq in enumerate(x2_shape)],
                         axis=-2)

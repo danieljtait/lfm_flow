@@ -1,8 +1,8 @@
 import tensorflow as tf
 from tensorflow_probability.python.distributions import GaussianProcess
 from lfm_flow.kernels import LFM1_RBF
-from tensorflow_probability.python.internal import dtype_util
 import numpy as np
+import lfm_flow.mogaussianprocesses
 
 
 class FlatKernel:
@@ -51,33 +51,45 @@ class MultioutputGaussianProcess(GaussianProcess):
         )
 
 
-
-
 sess = tf.InteractiveSession()
 
-D = [0.4, 0.3]
-S = [[0.1, ],
-     [-2., ]]
+D = tf.get_variable('D', shape=(2,), dtype=np.float64)
+S = tf.get_variable('S', shape=(3, 2, 1), dtype=np.float64)
+
 
 lf_length_scales = [0.3]
 
 kern = LFM1_RBF(D, S, lf_length_scales)
 
-t1 = tf.placeholder(np.float64, shape=(5, 1))
+
+t1 = tf.placeholder(np.float64, shape=(10, 1))
 t2 = tf.placeholder(np.float64, shape=(0, 1))
 
 index_points = [t1, t2]
 
 mogp = MultioutputGaussianProcess(kern, index_points)
+mogp2 = lfm_flow.mogaussianprocesses.MultioutputGaussianProcess(kern, index_points)
 
 cov = mogp._covariance_matrix
 
-fd = {t1: np.random.randn(5, 1),
-      t2: np.random.randn(0, 1)
+_t1 = np.linspace(0., 3., 10)
+fd = {t1: _t1[:, None],
+      t2: np.random.randn(0, 1),
+      D: np.array([.5, 0.3]),
       }
 
 sess.run(tf.global_variables_initializer())
 
 eigvals = tf.linalg.eigvalsh(cov)
 eigvals = sess.run(eigvals, feed_dict=fd)
-print(eigvals)
+
+rv = mogp.sample(10)
+
+rv = sess.run(rv, feed_dict=fd)
+print(mogp2.batch_shape)
+print(rv.shape)
+
+#import matplotlib.pyplot as plt
+#fig, ax = plt.subplots()
+#ax.plot(_t1, rv.T, 'C0-', alpha=.5)
+#plt.show()

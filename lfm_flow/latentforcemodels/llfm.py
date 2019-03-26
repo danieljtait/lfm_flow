@@ -1,6 +1,36 @@
 import tensorflow as tf
 from tensorflow_probability.python.distributions import (MultivariateNormalFullCovariance,
                                                          GaussianProcess)
+from lfm_flow.mogaussianprocesses import MultioutputGaussianProcess
+
+
+class LFMGaussianProcess(MultioutputGaussianProcess):
+
+    def __init__(self,
+                 kernel,
+                 index_points,
+                 mean_fn=None,
+                 observation_noise_variance=0.,
+                 jitter=1e-6,
+                 validate_args=False,
+                 allow_nan_stats=False,
+                 name='LFMGaussianProcess'):
+        """
+        Instantiate a LFM Gaussian Process Distribution.
+
+        :param kernel:
+        :param index_points:
+        :param mean_fn:
+        :param observation_noise_variance:
+        :param jitter:
+        :param validate_args:
+        :param allow_nan_stats:
+        :param name:
+        """
+        super(LFMGaussianProcess, self).__init__(
+            kernel, index_points, mean_fn, observation_noise_variance,
+            jitter, validate_args, allow_nan_stats, name)
+
 
 # decorater for the kernel function to recieve information
 # about the shape for multioutput regression
@@ -12,7 +42,7 @@ class LLFM(GaussianProcess):
                  kernel,
                  index_points,
                  jitter=1e-6,
-                 name='LFM1'):
+                 name='LFM'):
 
         parameters = dict(locals())
 
@@ -22,21 +52,6 @@ class LLFM(GaussianProcess):
         self._kernel = kernel
 
         self._orig_index_points = index_points
-
-
-        """
-        flat_index_points = tf.concat(index_points, axis=-2)
-        
-        self._index_points = index_points
-        self._flat_index_points = tf.concat(self._index_points,
-
-        self._jitter = jitter
-
-        with tf.compat.v1.name_scopt('init', values=[index_points, jitter]):
-            kernel_matrix = _add_diagonal_shift(
-                kernel.matrix(self.flat_index_points, self.flat_index_points,
-                              self.flat_index_points.shape)
-        """
 
     @property
     def kernel(self):

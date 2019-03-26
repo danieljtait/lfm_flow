@@ -12,8 +12,8 @@ class Kernel:
             'Subclasses must provide `_apply` implementation'
         )
 
-    def matrix(self, x1, x2):
-        return self._apply(x1, x2)
+    def matrix(self, x1, x2, *args, **kwargs):
+        return self._apply(x1, x2, *args, **kwargs)
 
 
 class RBF(psd.PositiveSemidefiniteKernel):

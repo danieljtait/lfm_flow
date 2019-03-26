@@ -3,28 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to lfm_flow's documentation!
+Welcome to LFM_Flow's documentation!
 ====================================
 
-Here is some txt.
+This project uses TensorFlow to implement latent force models in Python. It is
+meant only as a short lived project while I familarise myself with TensorFlow
+before folding these models into a more general project.
+
+In the interim feel free to browse the user guide to learn more about latent
+force models and to fit them using Python.
 
 .. toctree::
    :maxdepth: 1
+
    /user/index
-   reference/index
-
-.. automodule:: lfm_flow.kernels
-   :members:		
-
-A break inbetween
-
-.. autoclass:: lfm_flow.kernels.LFM1_RBF
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   /user/index      
+   /reference/index
 
 
 
