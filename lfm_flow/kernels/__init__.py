@@ -9,4 +9,4 @@ The :mod:`lfm_flow.kernels` module implements kernels for the GP
 objects.
 """
 from . lfm_kernels import LFM1_RBF
-from . kernels import RBF
+from . kernels import Kernel, RBF, MultioutputPositiveSemidefiniteKernel

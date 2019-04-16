@@ -1,4 +1,5 @@
 import tensorflow as tf
+from tensorflow_probability.python.internal import dtype_util
 from tensorflow_probability.python.distributions import (GaussianProcess,
                                                          GaussianProcessRegressionModel)
 
@@ -97,11 +98,13 @@ class MultioutputGaussianProcessRegressionModel(GaussianProcessRegressionModel):
             self._observation_index_points_shape = [item.shape[-2] for item in observation_index_points]
             flat_observation_index_points = tf.concat(observation_index_points, axis=-2)
 
+            flat_observations = tf.concat(observations, axis=-1)
+
         super(MultioutputGaussianProcessRegressionModel, self).__init__(
               kernel,
               flat_index_points,
               observation_index_points=flat_observation_index_points,
-              observations=observations,
+              observations=flat_observations,
               observation_noise_variance=observation_noise_variance,
               predictive_noise_variance=predictive_noise_variance,
               mean_fn=mean_fn,
@@ -109,6 +112,11 @@ class MultioutputGaussianProcessRegressionModel(GaussianProcessRegressionModel):
               validate_args=validate_args,
               allow_nan_stats=allow_nan_stats,
               name=name)
+
+    def sample(self, sample_shape=(), seed=None, name="sample"):
+        rv = super(MultioutputGaussianProcessRegressionModel, self).sample(
+            sample_shape, seed, name)
+        return tf.split(rv, self.index_points_shape, axis=-1)
 
     def _compute_posterior_predictive_loc_and_covariance(self):
         """
@@ -169,3 +177,77 @@ class MultioutputGaussianProcessRegressionModel(GaussianProcessRegressionModel):
     @property
     def observation_index_points_shape(self):
         return self._observation_index_points_shape
+
+
+class MultioutputGaussianProcess2(GaussianProcess):
+
+    def __init__(self,
+                 kernel,
+                 index_points,
+                 mean_fn=None,
+                 observation_noise_variance=0.,
+                 jitter=1e-6,
+                 validate_args=False,
+                 allow_nan_stats=False,
+                 name='MultioutputGaussianProcess'):
+        parameters = dict(locals())
+        with tf.name_scope(name) as name:
+            present_index_points = [item for item in index_points if item is not None]
+
+            dtype = dtype_util.common_dtype(
+                [present_index_points, observation_noise_variance, jitter], tf.float32)
+
+            _index_points = []
+            for m, item in enumerate(index_points):
+                if item is not None:
+                    _index_points.append(tf.convert_to_tensor(
+                        value=item, name='index_points_{}'.format(m)))
+                else:
+                    _index_points.append(None)
+
+            jitter = tf.convert_to_tensor(value=jitter, dtype=dtype, name='jitter')
+            observation_noise_variance = tf.convert_to_tensor(
+                value=observation_noise_variance,
+                dtype=dtype,
+                name='observation_noise_variance')
+
+            self._kernel = kernel
+            self._index_points = _index_points
+
+            # Default to a constant zero function, borrowing the dtype from
+            # index_points to ensure consistency
+            if mean_fn is None:
+                mean_fn = lambda x: tf.zeros([1], dtype=dtype)
+            else:
+                if not callable(mean_fn):
+                    raise ValueError('`mean_fn` must be a Python callable')
+
+            self._mean_fn = mean_fn
+            self._observation_noise_variance = observation_noise_variance
+            self._jitter = jitter
+
+            with tf.name_scope('init'):
+                kernel_matrix = _add_diagonal_shift(
+                    kernel.matrix(self.index_points, self.index_points),
+                    jitter + observation_noise_variance
+                )
+            self._covariance_matrix = kernel_matrix
+
+            scale = tf.linalg.LinearOperatorLowerTriangular(
+                tf.linalg.cholesky(kernel_matrix),
+                is_non_singular=True,
+                name='MultioutputGaussianProcessScaleLinearOperator')
+
+            # skip the init function for GaussianProcess and instead
+            # call the init on mvn_linear_operator.MultivariateNormalLinearOperator
+            super(GaussianProcess, self).__init__(
+                loc=mean_fn(index_points),
+                scale=scale,
+                validate_args=validate_args,
+                allow_nan_stats=allow_nan_stats,
+                name=name)
+
+            self._parameters = parameters
+            self._graph_parents = [
+                *[item for item in index_points if item is not None],
+                jitter]

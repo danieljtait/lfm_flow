@@ -4,6 +4,43 @@ from tensorflow_probability.python.distributions import (MultivariateNormalFullC
 from lfm_flow.mogaussianprocesses import MultioutputGaussianProcess
 
 
+class CombinedLFMKernel:
+    def __init__(self):
+        """
+        Wraps the kernel
+        """
+
+class LatentForceModel(GaussianProcess):
+
+    def __init__(self, kernel, index_points,
+                 lf_index_points=None,
+                 *args, **kwargs):
+
+        # get the no. of observations of each output of the GP
+        self._index_points_n_dim = [item.shape[-2] for item in index_points]
+
+        # check if we we are conditioning on any of the latent forces
+        self._lf_index_points = lf_index_points
+        if self.lf_index_points is None:
+            self._lf_index_points_shape = None
+        else:
+            self._lf_index_points_shape = []
+            for item in lf_index_points:
+                if item is None:
+                    self._lf_index_points_shape.append(None)
+                else:
+                    self._lf_index_points_shape.append(item.shape[-2])
+
+    @property
+    def lf_index_points(self):
+        return self._lf_index_points
+
+    @property
+    def lf_index_points_shape(self):
+        return self._lf_index_points_shape
+
+
+
 class LFMGaussianProcess(MultioutputGaussianProcess):
 
     def __init__(self,
